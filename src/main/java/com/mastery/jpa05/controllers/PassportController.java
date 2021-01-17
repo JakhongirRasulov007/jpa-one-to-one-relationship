@@ -22,12 +22,13 @@ public class PassportController {
     public void addPassport(@PathVariable(name = "personId") Integer personId,
                             @RequestBody Passport passport){
         Person person = personService.getPersonById(personId);
+        passportService.addPassport(passport);
         person.setPassport(passport);
 
         passport.setPerson(person);
         personService.update(person);
         System.out.println(person.getPersonId() + "===============================");
-       // passportService.addPassport(passport);
+
     }
 
     @GetMapping("/all")

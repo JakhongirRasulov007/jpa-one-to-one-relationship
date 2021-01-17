@@ -13,7 +13,6 @@ public class Passport {
     private String country;
 
     @OneToOne(mappedBy = "passport")
-    @JoinColumn(name = "person_id")
     @JsonIgnore
     private Person person;
 
