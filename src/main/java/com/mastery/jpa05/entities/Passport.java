@@ -1,5 +1,7 @@
 package com.mastery.jpa05.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,8 +12,9 @@ public class Passport {
     private Integer passportId;
     private String country;
 
-    @OneToOne(mappedBy = "passportId")
+    @OneToOne(mappedBy = "passport")
     @JoinColumn(name = "person_id")
+    @JsonIgnore
     private Person person;
 
     public Integer getPassportId() {
